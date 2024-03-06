@@ -27,6 +27,7 @@ const roomsData = [
 
 const bookingRoom = [];
 
+// All Room Details
 export const getAllRooms = (req, res) => {
   res.status(200).json({
     message: "All Room Details fetched Successfully",
@@ -34,6 +35,7 @@ export const getAllRooms = (req, res) => {
   });
 };
 
+// Creating a New Room
 export const createRoom = (req, res) => {
   try {
     const { room_name, room_status, seats, price_per_hour, amenities } =
@@ -58,6 +60,7 @@ export const createRoom = (req, res) => {
   }
 };
 
+// Function to book room
 export const bookRoom = (req, res) => {
   const { customer_name, date, start_time, end_time, roomId } = req.body;
 
@@ -96,6 +99,7 @@ export const bookRoom = (req, res) => {
   }
 };
 
+// To get all booked rooms
 export const getAllBookedRooms = (req, res) => {
   res.status(200).json({
     message: "All booked Room Details fetched Successfully",
@@ -103,9 +107,8 @@ export const getAllBookedRooms = (req, res) => {
   });
 };
 
-// Function to get data of all customers with booked room details
+// To display All customer booked data
 export const AllCustomersBookedData = (req, res) => {
-  // Responds with data of all customers along with their booked room details
   const customerdata = bookingRoom.map((booking) => {
     const Room = roomsData.find((i) => i.room_id === booking.roomID);
     return {
@@ -123,7 +126,7 @@ export const AllCustomersBookedData = (req, res) => {
   });
 };
 
-// Function to get booking details for each customer along with booking count
+// To display all customers room booked data along with booking count
 export const CustomerBookingDetails = (req, res) => {
   const customerBookings = {};
 
@@ -164,6 +167,7 @@ export const CustomerBookingDetails = (req, res) => {
   });
 };
 
+// Home Page
 export const homePage = (req, res) => {
   res.status(200).send(
     `<h1 style="text-align:center;padding:10px;background-color:#333;color:#fff">Welcome To Hall Booking API</h1>

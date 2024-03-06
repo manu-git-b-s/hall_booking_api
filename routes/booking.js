@@ -22,7 +22,10 @@ router.post("/book-room", bookRoom);
 // To get all booked rooms
 router.get("/all-booked-rooms", getAllBookedRooms);
 
+// To display All customer booked data
 router.get("/customers-booked-data", AllCustomersBookedData);
+
+// To display all customers room booked data along with booking count
 router.get("/customer-booking-count", CustomerBookingDetails);
 
 export default router;
